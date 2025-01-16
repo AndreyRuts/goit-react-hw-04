@@ -1,39 +1,20 @@
-import ContactForm from './components/ContactForm/ContactForm';
-import SearchBox from './components/SearchBox/SearchBox';
-import ContactList from './components/ContactList/ContactList';
-import defaultContactList from '../contact-list.json'
-import { useState, useEffect } from 'react';
+import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import SearchBar from './components/SearchBar/SearchBar';
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import Loader from './components/Loader/Loader';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
+import ImageModal from './components/ImageModal/ImageModal';
 
-const App = () => { 
-    const savedData = JSON.parse(localStorage.getItem('data'));
-
-    const [contacts, setContacts] = useState(savedData || defaultContactList);
-    const [searchData, setSearchData] = useState("")
-    
-    const visibleContacts = contacts.filter((contact) => contact.name.toLocaleLowerCase().includes(searchData.toLocaleLowerCase()));
-
-    const addContact = (data) => {
-        setContacts(prev => [...prev, data]);
-    }
-    
-    const deleteContact = (id) => {
-        setContacts(prev => prev.filter(item => item.id !== id));
-    }
-
-    useEffect(() => {
-       localStorage.setItem('data', JSON.stringify(contacts)) 
-    }, [contacts]);
+const App = () => {
 
     return (
         <>
-            <h1>Phonebook</h1>
-            <ContactForm addContact={addContact} />
-            <SearchBox
-                searchData={searchData}
-                setSearchData={setSearchData} />
-            <ContactList
-                contactList={visibleContacts}
-                deleteContact={deleteContact} />
+            <LoadMoreBtn />
+            <SearchBar />
+            <ImageGallery />
+            <Loader />
+            <ErrorMessage />
+            <ImageModal />
         </>
     );
 };
