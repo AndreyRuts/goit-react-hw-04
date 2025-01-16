@@ -8,12 +8,12 @@ import ImageModal from './components/ImageModal/ImageModal';
 const App = () => {
 
     return (
-        <>
-            <LoadMoreBtn />
+        <> 
             <SearchBar />
             <ImageGallery />
             <Loader />
             <ErrorMessage />
+            <LoadMoreBtn />
             <ImageModal />
         </>
     );
