@@ -10,13 +10,7 @@ const SearchBar = ({ onSubmit }) => {
             return;
         }
         onSubmit(customQuery);
-        console.log(customQuery);
-        
     };
-
-
-
-
 
     return (
         <header>

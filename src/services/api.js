@@ -18,6 +18,5 @@ export const fetchData = async (query, page) => {
             page,
         }
     });
-    console.log(data);
-    return data
+    return data;
 };
