@@ -1,4 +1,5 @@
 import s from './SearchBar.module.css';
+import toast from 'react-hot-toast';
 
 const SearchBar = ({ onSubmit }) => {
     const handleSubmit = (evt) => {
@@ -6,7 +7,7 @@ const SearchBar = ({ onSubmit }) => {
         const customQuery = evt.target.customQuery.value.trim();
 
         if (!customQuery) {
-            console.log("OMG ERROR");
+            toast.error('Please enter the value you are looking for');
             return;
         }
         onSubmit(customQuery);

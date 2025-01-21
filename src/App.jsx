@@ -6,6 +6,7 @@ import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import ImageModal from './components/ImageModal/ImageModal';
 import { useState, useEffect } from 'react';
 import { fetchData } from './services/api';
+import { Toaster } from 'react-hot-toast';
 
 
 const App = () => {
@@ -91,6 +92,7 @@ const App = () => {
                 src={modalImage}
                 alt={altDescription}
             />
+            <Toaster position="top-left"/>
         </>
     );
 };
